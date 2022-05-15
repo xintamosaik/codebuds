@@ -1,0 +1,208 @@
+:root {
+	--header-bg-color: black;
+    --header-font-family: 'Work Sans';
+	--main-bg-color: #30153D;
+    --main-bg-color-light: beige;
+
+	--main-font-family: 'Merriweather', serif;
+;
+	--main-font-color: white;
+    --main-font-color-light: black;
+	--main-link-color:#52F2A6;
+    --main-link-color-light: #912391;
+	--main-text-font-size: 1rem;
+    --main-header-all-font-family: 'Work Sans';
+    --main-header-all-font-color: #F2CD83;
+    --main-header-all-font-color-light: #10544A;
+	--main-header1-font-size: 2.4rem;
+    --main-figure-bg-color: black;
+    --main-figure-bg-color-light: #C5BF8E;
+	--footer-bg-color: black;
+    --footer-font-family: 'Work Sans';
+}
+/*
+ 'Merriweather', serif;
+ 'Source Sans Pro', sans-serif;
+ 'Work Sans', sans-serif; 
+*/
+html {
+	font-size: 16px;
+}
+
+/* DEBUG */
+html * {
+	/* make layout easier */
+	/* border: 1px solid red; */
+	margin: 0;
+	padding: 0;
+}
+/* END DEBUG */
+
+body {
+	background-color: var(--main-bg-color);
+ /*   background-color: #756b7a; 
+  *   That's a nice color
+*  */
+    
+	color: var(--main-font-color);
+}
+body.light {
+    color: var(--main-font-color-light);
+    background-color: var(--main-bg-color-light)
+}
+body {
+    transition: all 1.2s;
+}
+
+body.light  {
+    transition: all 1.2s;
+}
+
+body.light main#mainContent{
+/*    background-color: var(--main-bg-color-light); */
+    color: var(--main-font-color-light);
+}
+
+header#headerDesktop {
+    display: none;
+	background-color: var(--header-bg-color);
+    font-family: var(--header-font-family);
+    color: beige;
+	padding: 3vh 3vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+header nav {
+    user-select: none;
+}
+
+header nav ul {
+    display: inline-block;
+}
+
+header nav ul li {
+	list-style-type: none;
+}
+
+header nav ul li a {
+   
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: beige;	
+}
+
+header nav i.material-icons {
+    margin-left: 80vw;
+    vertical-align: bottom;
+    font-size: var(--header-font-size);
+    cursor: pointer;
+}
+i#darkModeIconMobile.material-icons {
+    position: fixed;
+    left: 91vw;
+    top: 2vh;
+    font-size: 4vh;
+
+}
+
+main {
+	/*background-color: midnightblue;*/
+	color: var(--main-font-color);
+	margin: 10vw 12vw;
+    counter-reset: figure;
+}
+
+main h1, main h2, main h3, main h4 {
+    font-family:var(--main-header-all-font-family);
+    color: var(--main-header-all-font-color);
+}
+
+
+body.light main h1, main h2, main h3, main h4 {
+    color: var(--main-header-all-font-color-light);
+}
+
+main section p {
+    margin-bottom: 6vh;
+}
+main figure { 
+    background-color: black;	
+    padding: 5vw 4vw 1vw 4vw; 
+    margin: 6vh 0vw;
+ 
+}
+main figcaption {
+    font-family: var(--main-header-all-font-family);
+    padding: 2vh 0vw;
+    text-align: center;
+}
+
+body.light main figure {
+    background-color: var(--main-figure-bg-color-light);
+}
+
+main img {
+    width: 100%;
+}
+main figcaption:before {
+   /* content: attr(counter)  This does not yet work, because there is no counter or syntax */
+   counter-increment: figure;
+   content: "fig " counter(figure) ": ";
+}
+
+main section {
+	margin-top: 6vh;
+}
+
+section#introduction p {
+/*	column-count: 2;
+	column-gap: 6vw;	*/
+}
+
+main a {
+	text-decoration: none;
+	color: var(--main-link-color);
+}
+body.light main a {
+    color: var(--main-link-color-light);
+}
+main h1 {
+	font-size: var(--main-header1-font-size);
+	text-transform: uppercase;
+}
+
+main p {
+	text-align: justify;
+    font-family: var(--main-font-family);
+	line-height: 1.6rem;
+}
+
+footer {
+	background-color: var(--footer-bg-color);
+    font-family: var(--footer-font-family);
+    color: beige;
+	padding: 3vh 3vw;
+}
+
+@media only screen and (min-width: 768px) {
+  header#headerDesktop {
+    display: initial;
+  }
+  
+  i#darkModeIconMobile {
+    display:none;
+  }
+
+  main figure {
+    float: right;
+    margin: 3vh 2vw;
+    padding: 0px;
+  }
+  main img {
+    width: 26vw;
+  }
+}
