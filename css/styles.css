@@ -20,30 +20,21 @@
 	--footer-bg-color: black;
     --footer-font-family: 'Work Sans';
 }
-/*
- 'Merriweather', serif;
- 'Source Sans Pro', sans-serif;
- 'Work Sans', sans-serif; 
-*/
+
 html {
 	font-size: 16px;
 }
 
-/* DEBUG */
 html * {
-	/* make layout easier */
-	/* border: 1px solid red; */
 	margin: 0;
 	padding: 0;
 }
-/* END DEBUG */
 
 body {
 	background-color: var(--main-bg-color);
  /*   background-color: #756b7a; 
   *   That's a nice color
 *  */
-    
 	color: var(--main-font-color);
 }
 body.light {
@@ -59,7 +50,6 @@ body.light  {
 }
 
 body.light main#mainContent{
-/*    background-color: var(--main-bg-color-light); */
     color: var(--main-font-color-light);
 }
 
@@ -88,7 +78,6 @@ header nav ul li {
 }
 
 header nav ul li a {
-   
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: 900;
@@ -110,7 +99,6 @@ i#darkModeIconMobile.material-icons {
 }
 
 main {
-	/*background-color: midnightblue;*/
 	color: var(--main-font-color);
 	margin: 10vw 12vw;
     counter-reset: figure;
@@ -158,10 +146,6 @@ main section {
 	margin-top: 6vh;
 }
 
-section#introduction p {
-/*	column-count: 2;
-	column-gap: 6vw;	*/
-}
 
 main a {
 	text-decoration: none;
@@ -176,7 +160,7 @@ main h1 {
 }
 
 main p {
-	text-align: justify;
+	text-align: initial;
     font-family: var(--main-font-family);
 	line-height: 1.6rem;
 }
@@ -204,5 +188,8 @@ footer {
   }
   main img {
     width: 26vw;
+  }
+  main p {
+      text-align: justify;
   }
 }
