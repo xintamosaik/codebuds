@@ -1,46 +1,63 @@
 :root {
-	--header-bg-color: black;
-    --header-font-family: 'Work Sans';
-	--main-bg-color: #30153D;
-    --main-bg-color-light: beige;
+    /* DEFINITIONS*/
+    --sans-font: 'Work Sans';
+    --serif-font: 'Merriweather', serif;
 
-	--main-font-family: 'Merriweather', serif;
-;
-	--main-font-color: white;
-    --main-font-color-light: black;
-	--main-link-color:#52F2A6;
-    --main-link-color-light: #912391;
-	--main-text-font-size: 1rem;
-    --main-header-all-font-family: 'Work Sans';
-    --main-header-all-font-color: #F2CD83;
-    --main-header-all-font-color-light: #10544A;
-	--main-header1-font-size: 2.4rem;
-    --main-figure-bg-color: black;
-    --main-figure-bg-color-light: #C5BF8E;
-	--footer-bg-color: black;
-    --footer-font-family: 'Work Sans';
+    --font-size-normal: 1rem;
+    --font-size-biggest: 2.4rem;
+
+    --color-black: #110e11;
+    --color-white: #fff1f4;
+    --color-bg-dark: #30143D;
+    --color-bg-light: beige;
+    --color-bg-light-two: #C5BF8E;
+    --color-dark-accent-one: #52F2A6;
+    --color-light-accent-one: #912391;
+    --color-dark-accent-two: #F2CD83;
+    --color-light-accent-two: #10544A;
+    /* STANDARDS  */
+	--header-bg-color: var(--color-black);
+    --header-font-family: var(--sans-font);
+	--main-bg-color: var(--color-bg-dark);
+    --main-bg-color-light: var(--color-bg-light);
+
+	--main-font-family: var(--serif-font);
+
+	--main-font-color: var(--color-white);
+    --main-font-color-light: var(--color-black);;
+	--main-link-color: var(--color-dark-accent-one);
+    --main-link-color-light: var(--color-light-accent-one);
+	--main-text-font-size: var(--font-size-normal);
+    --main-header-all-font-family: var(--sans-font);
+    --main-header-all-font-color: var(--color-dark-accent-two);
+    --main-header-all-font-color-light: var(--color-light-accent-two);
+	--main-header1-font-size: var(--font-size-biggest);
+    --main-figure-bg-color: var(--color-black);
+    --main-figure-bg-color-light: var(--color-bg-light-two);
+	--footer-bg-color: var(--color-black);
+    --footer-font-family: var(--sans-font);
 }
 
 html {
-	font-size: 16px;
+	font-size: 18px;
 }
 
 html * {
 	margin: 0;
 	padding: 0;
+    box-sizing: border-box;
 }
 
 body {
 	background-color: var(--main-bg-color);
- /*   background-color: #756b7a; 
-  *   That's a nice color
-*  */
 	color: var(--main-font-color);
 }
+
 body.light {
     color: var(--main-font-color-light);
     background-color: var(--main-bg-color-light)
 }
+
 body {
     transition: all 1.2s;
 }
@@ -57,8 +74,7 @@ header#headerDesktop {
     display: none;
 	background-color: var(--header-bg-color);
     font-family: var(--header-font-family);
-    color: beige;
-	padding: 3vh 3vw;
+    color: var(--color-white);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -78,24 +94,51 @@ header nav ul li {
 }
 
 header nav ul li a {
+    display: inline-block;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: 900;
-	color: beige;	
+	color: beige;
+    margin: 1.1rem;    
+}
+header nav ul li a:hover {
+    font-size: calc( var(--font-size-normal) * 1.2 );
+    margin: 1.0rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 0.2rem solid teal;
+}
+
+body.light header nav ul li a:hover {
+    border-bottom: 0.2rem solid magenta;
 }
 
 header nav i.material-icons {
-    margin-left: 80vw;
+    margin-right: 1.1rem;
+    margin-left: auto;
+    float: right;
     vertical-align: bottom;
-    font-size: var(--header-font-size);
+    font-size: var(--font-size-normal);
     cursor: pointer;
+    margin: 1.1rem;
 }
+
+header nav i.material-icons:hover {
+    font-size: calc( var(--font-size-normal) * 1.2 );
+    margin: 0.8rem;
+    border: 0.2rem solid teal;
+    border-radius: 50%;
+}
+
+body.light header nav i.material-icons:hover {
+    border: 0.2rem solid magenta;
+}
+
 i#darkModeIconMobile.material-icons {
     position: fixed;
     left: 91vw;
     top: 2vh;
     font-size: 4vh;
-
+    
 }
 
 main {
@@ -109,7 +152,6 @@ main h1, main h2, main h3, main h4 {
     color: var(--main-header-all-font-color);
 }
 
-
 body.light main h1, main h2, main h3, main h4 {
     color: var(--main-header-all-font-color-light);
 }
@@ -117,11 +159,12 @@ body.light main h1, main h2, main h3, main h4 {
 main section p {
     margin-bottom: 6vh;
 }
+
 main figure { 
-    background-color: black;	
+    background-color: var(--color-black);	
     padding: 5vw 4vw 1vw 4vw; 
     margin: 6vh 0vw;
- 
+    box-shadow: 0rem 0.2rem 0.4rem var(--color-black);
 }
 main figcaption {
     font-family: var(--main-header-all-font-family);
@@ -131,6 +174,7 @@ main figcaption {
 
 body.light main figure {
     background-color: var(--main-figure-bg-color-light);
+    box-shadow: 0.1rem 0.3rem 0.1rem gray;
 }
 
 main img {
@@ -154,6 +198,7 @@ main a {
 body.light main a {
     color: var(--main-link-color-light);
 }
+
 main h1 {
 	font-size: var(--main-header1-font-size);
 	text-transform: uppercase;
@@ -164,11 +209,61 @@ main p {
     font-family: var(--main-font-family);
 	line-height: 1.6rem;
 }
+main section#sources ol li {
+    transition: all 2.4s
+}
+
+main section#sources ol li.arrivedByOnsiteLink {
+    transition: all 0.8s;
+    box-shadow: -4px 4px 2px salmon;
+    background-color: rgba(200, 100, 100, 0.2);
+}
+
+blockquote {
+    margin: 0vw 2vw;
+    padding: 0vw 1vw;
+    font-style: oblique;
+    color: #dce;
+    font-size: calc( var(--font-size-normal) * 0.8);
+    border-left: 1vw solid salmon;
+    
+}
+
+blockquote p {
+    text-align: left;
+}
+body.light blockquote {
+    color: #5f4662;
+
+    border-left: 1vw solid teal;
+}
+
+blockquote p::before {
+    content: open-quote;
+}
+
+blockquote p::after { 
+    content: close-quote;
+}
+blockquote p{
+    quotes: "“" "”" "‘" "’";
+}
+textarea {
+    border: none;
+    box-shadow: -10px 0  teal;
+
+    outline: none; 
+    color: white;
+    background-color: var(--color-bg-dark);
+    width: 100%;
+    resize: none;
+    overflow: hidden; 
+}
 
 footer {
 	background-color: var(--footer-bg-color);
     font-family: var(--footer-font-family);
-    color: beige;
+    color: var(--color-white);
 	padding: 3vh 3vw;
 }
 
