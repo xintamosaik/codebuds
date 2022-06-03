@@ -31,16 +31,28 @@ const init = () => {
             toggleClassTwiceAfterDelay( onsiteTargetElementID , 5000 ) 
         })
     })
-
-    const  onInputInMainTextArea = targetedTextArea => {
-          targetedTextArea.style.height = "auto";
-          targetedTextArea.style.height = (targetedTextArea.scrollHeight) + "px";
+    const fitSizeToContent = targetedElement => {
+          targetedElement.style.height = "auto"
+          targetedElement.style.height = (targetedElement.scrollHeight) + "px"
     }
+    const getIndexesOfTextArea = targetedElement => {
+        const textAreaContent = targetedElement .value
+        const lineFeeds = /\r|\n/.exec(textAreaContent);
+        if (lineFeeds === null) return 0
+        return lineFeeds.index
+
+    }
+
+    const onInputInMainTextArea = targetedTextArea => {
+          fitSizeToContent(targetedTextArea)
+          console.log (getIndexesOfTextArea (targetedTextArea) ) // Is this the time for a recursion?
+    }
+
     const mainTextarea = document.getElementById('mainTextarea')
     mainTextarea.addEventListener("input", event  => {
         onInputInMainTextArea(event.target)
     })
-}
+
 
 console.log('scripts.js:')
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init)

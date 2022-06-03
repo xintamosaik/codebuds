@@ -42,12 +42,12 @@ html {
 	font-size: 18px;
 }
 
-html * {
-	margin: 0;
-	padding: 0;
+html  {
     box-sizing: border-box;
 }
-
+body, div, footer, header, main {
+    margin: 0;
+}
 body {
 	background-color: var(--main-bg-color);
 	color: var(--main-font-color);
@@ -87,6 +87,12 @@ header nav {
 
 header nav ul {
     display: inline-block;
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
 }
 
 header nav ul li {
@@ -155,9 +161,11 @@ main h1, main h2, main h3, main h4 {
 body.light main h1, main h2, main h3, main h4 {
     color: var(--main-header-all-font-color-light);
 }
-
+h1, h2, h3, h4 {
+    margin: 0;
+}
 main section p {
-    margin-bottom: 6vh;
+    margin: 0 0 6vh 0;
 }
 
 main figure { 
@@ -166,6 +174,7 @@ main figure {
     margin: 6vh 0vw;
     box-shadow: 0rem 0.2rem 0.4rem var(--color-black);
 }
+
 main figcaption {
     font-family: var(--main-header-all-font-family);
     padding: 2vh 0vw;
@@ -180,6 +189,7 @@ body.light main figure {
 main img {
     width: 100%;
 }
+
 main figcaption:before {
    /* content: attr(counter)  This does not yet work, because there is no counter or syntax */
    counter-increment: figure;
@@ -190,11 +200,11 @@ main section {
 	margin-top: 6vh;
 }
 
-
 main a {
 	text-decoration: none;
 	color: var(--main-link-color);
 }
+
 body.light main a {
     color: var(--main-link-color-light);
 }
@@ -207,8 +217,9 @@ main h1 {
 main p {
 	text-align: initial;
     font-family: var(--main-font-family);
-	line-height: 1.6rem;
+	line-height: 320%;
 }
+
 main section#sources ol li {
     transition: all 2.4s
 }
@@ -226,12 +237,12 @@ blockquote {
     color: #dce;
     font-size: calc( var(--font-size-normal) * 0.8);
     border-left: 1vw solid salmon;
-    
 }
 
 blockquote p {
     text-align: left;
 }
+
 body.light blockquote {
     color: #5f4662;
 
@@ -245,11 +256,42 @@ blockquote p::before {
 blockquote p::after { 
     content: close-quote;
 }
+
 blockquote p{
     quotes: "“" "”" "‘" "’";
 }
+
+main ul {
+    margin: 0vh 0vw 0vh 0vw;
+    padding-inline-start: 0px;
+}
+
+main ul > ul {
+    margin: 0vh 0vw 0vh 0vw;
+    padding-inline-start: 2vw;
+    padding-inline-end: 2vw;
+}
+
+main ul > li
+{
+    list-style-type: none;
+    margin: 0vh -4vw 3vh -4vw;
+    border: 1px solid #044;
+    background-color: #0445;
+    padding: 0vh 4vw; 
+    font-family: var(--main-font-family);
+    line-height: 1.6rem;
+    font-size: var(--font-size-normal);
+}
+
+body.light main ul > li {
+
+    background-color: #fdf5;
+    border: 2px solid #fdf;
+}
+
 textarea {
-    border: none;
+    border: 1px dotted teal;
     box-shadow: -10px 0  teal;
 
     outline: none; 
@@ -259,6 +301,15 @@ textarea {
     resize: none;
     overflow: hidden; 
 }
+
+body.light textarea {
+    color: black;
+    background-color: var(--color-bg-light);
+    border: 1px dotted magenta;
+    box-shadow: -10px 0  magenta;
+}
+
+
 
 footer {
 	background-color: var(--footer-bg-color);
