@@ -53,6 +53,6 @@ const init = () => {
         onInputInMainTextArea(event.target)
     })
 
-
+}
 console.log('scripts.js:')
 document.addEventListener("DOMContentLoaded", init)
